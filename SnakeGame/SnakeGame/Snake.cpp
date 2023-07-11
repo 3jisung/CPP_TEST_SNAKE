@@ -9,12 +9,16 @@
 int main()
 {
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+    //_CrtSetBreakAlloc(511);
 
     ConsoleEngineCore::CreateObject<Head>();
 
     int4 screen = { 10, 10 };
     int bodyCount = 10;
     BodyManager::BodyInit(screen, bodyCount);
+
     // 이 함수만은 무조건 존재해야 합니다.
     ConsoleEngineCore::EngineStart(screen);
+
+    ConsoleEngineCore::AllRelease();
 }

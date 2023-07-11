@@ -1,8 +1,10 @@
 #include "BodyManager.h"
+#include <cstdlib>
 
 void BodyManager::BodyInit(const int4& _Scale, const int bodyCount)
 {
     // 랜덤한 위치에 바디 생성
+    srand(time(NULL));
     int4 tempPosArr[10];
     for (size_t i = 0; i < bodyCount; i++)
     {
@@ -32,6 +34,7 @@ void BodyManager::BodyInit(const int4& _Scale, const int bodyCount)
             if (tempPosArr[i] == tempPosArr[j])
             {
                 i -= 1;
+                delete body;
                 break;
             }
 

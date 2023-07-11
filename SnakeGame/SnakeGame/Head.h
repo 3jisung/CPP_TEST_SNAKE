@@ -1,5 +1,6 @@
 #pragma once
 #include "Part.h"
+#include "Body.h"
 
 // Ό³Έν :
 class Head : public Part
@@ -17,8 +18,13 @@ public:
 
 protected:
 	void Tick(float _Time);
+	bool ScreenOutControl(int4& MovePos);
+	bool DirControl(int4& MovePos);
+	bool CheckBodyTrigger();
+	void AddBody();
+	void MovePart();
 
 private:
-	int4 currentDir = { 0, -1 };
+	int4 currentDir = { 0, 1 };
 };
 

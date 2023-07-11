@@ -39,10 +39,26 @@ public:
 		Objects.push_back(NewObject);
 	}
 
+	static std::list<ConsoleObject*>::iterator Begin()
+	{
+		return Objects.begin();
+	}
+
+	static std::list<ConsoleObject*>::iterator End()
+	{
+		return Objects.end();
+	}
+
+	static void Erase(std::list<ConsoleObject*>::iterator& object)
+	{
+		Objects.erase(object);
+	}
+
+	static void AllRelease();
+
 protected:
 
 private:
 	static std::list<ConsoleObject*> Objects;
 	static bool IsEngineProcess;
 };
-

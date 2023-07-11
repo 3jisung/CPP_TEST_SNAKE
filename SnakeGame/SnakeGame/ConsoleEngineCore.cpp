@@ -55,3 +55,17 @@ void ConsoleEngineCore::EngineStart(const int4& _Scale)
 		}
 	}
 }
+
+void ConsoleEngineCore::AllRelease()
+{
+	std::list<ConsoleObject*>::iterator Start = Objects.begin();
+	std::list<ConsoleObject*>::iterator End = Objects.end();
+
+	for (; Start != End; ++Start)
+	{
+		ConsoleObject* Object = (*Start);
+
+		delete Object;
+		Object = nullptr;
+	}
+}
